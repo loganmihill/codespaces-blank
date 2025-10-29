@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spirit — A Unique Journey Every Soul Travels</title>
+  <meta name="description" content="Spirit is an AI‑driven, soul‑centric platform that blends astrology, numerology, tarot, and guided practice into a rewarding 13‑day journey." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Spirit — A Unique Journey Every Soul Travels" />
+  <meta property="og:description" content="AI Light Sphere • 7 Planets as Spaces • Tarot & Numerology • Rewarding 13‑day Journey" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spiritjourney.app/" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/0b1220/ffffff&text=SPIRIT" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;              /* Deep indigo */
+      --bg-2:#0e1529;            /* Slightly lighter */
+      --card:#121a30;
+      --muted:#a0aec0;
+      --text:#e5ecff;
+      --gold:#f6c453;            /* Gold Light */
+      --blue:#6ab8ff;            /* Diamond Blue */
+      --accent-1:#87f0ff;        /* Electric aqua highlights */
+      --radius:18px;
+      --shadow:0 20px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1000px 600px at 80% -300px, #0f2145 0%, var(--bg) 60%), var(--bg);
+      color:var(--text); font: 400 16px/1.6 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial; letter-spacing:.1px;
+      overflow-x:hidden;
+    }
+    a{color:var(--blue); text-decoration:none}
+    a:hover{opacity:.9}
+
+    /* Layout */
+    .container{width:min(1200px, 92vw); margin-inline:auto}
+    header.nav{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,18,32,.85), rgba(11,18,32,.35));
+      border-bottom:1px solid rgb(255 255 255 / .06);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.6px}
+    .brand-mark{width:34px; height:34px; border-radius:50%; background: radial-gradient(60% 60% at 30% 30%, var(--gold), transparent 60%), radial-gradient(80% 80% at 70% 70%, var(--blue), transparent 60%), linear-gradient(135deg, #17335f, #0b1220);
+      box-shadow: 0 0 20px rgba(246,196,83,.35), inset 0 0 20px rgba(106,184,255,.15);
+      position:relative; overflow:hidden;
+    }
+    .brand .word{font-family:"Playfair Display",serif; font-weight:800}
+    nav a{margin:0 12px; color:#e6edff; font-weight:600}
+    .nav-cta{display:flex; align-items:center; gap:10px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:calc(var(--radius) - 6px);
+      border:1px solid rgb(255 255 255 / .08); background:linear-gradient(180deg, #1a243e, #11182d); color:#fff; font-weight:700; text-shadow: 0 1px 0 rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.gold{background:linear-gradient(180deg, #ffd88e, #f6c453); color:#0b1220; border-color:#f5c96f}
+
+    /* Hero */
+    .hero{position:relative; padding:96px 0 72px 0}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
+    .h1{font:800 clamp(34px, 5vw, 64px)/1.06 "Playfair Display",serif; margin:0 0 14px}
+    .lead{color:#dbe5ff; font-size:clamp(16px,2.2vw,18px)}
+    .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin:26px 0 0}
+    .hero-card{background:linear-gradient(180deg, #122045, #0e1730); border:1px solid rgb(255 255 255 / .08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .form-row{display:grid; grid-template-columns:1fr 1fr auto; gap:10px}
+    input, select{width:100%; padding:14px 12px; border-radius:12px; border:1px solid rgb(255 255 255 / .1); background:#0c142a; color:var(--text)}
+    label{font-weight:700; color:#c9d6ff}
+
+    /* Sections */
+    section{padding:80px 0}
+    h2{font:800 32px/1.2 "Playfair Display",serif; margin:0 0 16px}
+    .muted{color:var(--muted)}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .card{background:linear-gradient(180deg, #141e3a, #0f1833); border:1px solid rgb(255 255 255 / .08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+
+    /* Planets grid */
+    .planets{display:grid; grid-template-columns: repeat(7, minmax(120px, 1fr)); gap:12px; overflow-x:auto; padding-bottom:6px}
+    .planet{position:relative; padding:16px; border-radius:16px; border:1px solid rgb(255 255 255 / .08); background:linear-gradient(180deg, #132648, #0e1730)}
+    .planet h3{margin:6px 0 2px; font:800 18px/1.25 "Inter"}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; border:1px solid rgb(255 255 255 / .1); opacity:.95}
+
+    /* Timeline */
+    .timeline{display:grid; grid-template-columns:repeat(13, minmax(140px,1fr)); gap:12px; overflow-x:auto; padding-bottom:8px}
+    .step{padding:14px; border-radius:14px; border:1px solid rgb(255 255 255 / .08); background:linear-gradient(180deg,#14224c,#0f1836)}
+    .step b{display:block; margin-bottom:8px}
+
+    /* FAQ */
+    details{border:1px solid rgb(255 255 255 / .08); border-radius:14px; padding:14px 16px; background:linear-gradient(180deg,#111b36,#0d152f)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:800}
+
+    /* Footer */
+    footer{padding:34px 0 60px; border-top:1px solid rgb(255 255 255 / .06); background: radial-gradient(700px 300px at 20% -120px, rgba(246,196,83,.15), transparent), var(--bg-2)}
+
+    /* Responsive */
+    @media (max-width: 980px){ .hero-grid{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} }
+
+    /* AI Light Sphere (Canvas overlay) */
+    .orb-wrap{position:absolute; inset:0; pointer-events:none}
+    canvas#orb{position:absolute; inset:0; width:100%; height:100%}
+    .glow{position:absolute; inset:0; background: radial-gradient(400px 300px at var(--gx,70%) var(--gy,30%), rgba(106,184,255,.12), transparent 60%), radial-gradient(300px 240px at var(--gx2,40%) var(--gy2,70%), rgba(246,196,83,.10), transparent 65%)}
+
+    /* Utility */
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:12px; padding:2px 6px; border-radius:6px; border:1px solid rgb(255 255 255 / .15)}
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to main content</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div aria-hidden="true" class="brand-mark"></div>
+        <span class="word" aria-label="Spirit Home">Spirit</span>
+      </div>
+      <nav aria-label="primary">
+        <a href="#how">How it works</a>
+        <a href="#planets">7 Spaces</a>
+        <a href="#journey">13‑Day Journey</a>
+        <a href="#tarot">Tarot AI</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn" href="#signup">Join Waitlist</a>
+        <a class="btn gold" href="#journey">Start the Journey</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb-wrap" aria-hidden="true">
+        <canvas id="orb"></canvas>
+        <div class="glow"></div>
+      </div>
+      <div class="container hero-grid">
+        <div>
+          <h1 class="h1">A unique journey every soul travels.</h1>
+          <p class="lead">Spirit blends <b>astrology, numerology, tarot</b>, and daily practice into a personalized pathway—guided by your AI Companion and the luminous <span style="color:var(--gold);font-weight:800">Light Sphere</span>.</p>
+          <div class="cta-row">
+            <a class="btn gold" href="#signup">Join the Waitlist</a>
+            <a class="btn" href="#how">See how it works</a>
+          </div>
+          <p class="muted" style="margin-top:14px">Diamond Blue & Gold Light aesthetic · Privacy‑respecting · Built for depth, not doom‑scrolls</p>
+        </div>
+        <aside class="hero-card" id="signup" aria-labelledby="signup-heading">
+          <h2 id="signup-heading" style="margin:0 0 8px">Early Access</h2>
+          <p class="muted" style="margin-top:0">Get an invite, plus a free mini reading when we open.</p>
+          <form id="waitlistForm" novalidate>
+            <div class="form-row">
+              <label class="sr-only" for="name">Name</label>
+              <input id="name" name="name" placeholder="Full name" autocomplete="name" required />
+              <label class="sr-only" for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Email address" autocomplete="email" required />
+              <button class="btn gold" type="submit" aria-label="Join the Spirit waitlist">Notify me</button>
+            </div>
+            <div class="form-row" style="margin-top:10px">
+              <input id="phone" name="phone" placeholder="Mobile (optional)" autocomplete="tel" />
+              <select id="country" name="country" aria-label="Country">
+                <option value="AU" selected>Australia (+61)</option>
+                <option value="US">United States (+1)</option>
+                <option value="GB">United Kingdom (+44)</option>
+                <option value="NZ">New Zealand (+64)</option>
+              </select>
+              <div style="display:flex; align-items:center; gap:10px">
+                <input id="sms" name="sms" type="checkbox" style="width:18px;height:18px" />
+                <label for="sms" class="muted">SMS updates</label>
+              </div>
+            </div>
+            <p class="muted" style="font-size:12px;margin:8px 2px 0">By joining, you agree to our <a href="#">Privacy</a> & <a href="#">Terms</a>.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="container">
+        <h2>How Spirit Works</h2>
+        <p class="muted">Your AI Companion personalizes a 13‑day Rewarding Journey around your birth data and intentions.</p>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="card">
+            <b>1. Create your Character</b>
+            <p>Enter name, birth date & time, and contact preferences—opt‑in for email/SMS insights.</p>
+          </div>
+          <div class="card">
+            <b>2. Meet your Spirit</b>
+            <p>Receive a greeting, a snapshot of your energies, and get oriented to your Spaces.</p>
+          </div>
+          <div class="card">
+            <b>3. Start the Rewarding Journey (13 days)</b>
+            <p>Daily practices, reflections, and mini‑quests tuned to your chart and numerology.</p>
+          </div>
+          <div class="card">
+            <b>4. Control Panel (unlocks day 4)</b>
+            <p>Calendar, study, meditate, brainstorm, notes—fully integrated with your Spirit.</p>
+          </div>
+          <div class="card">
+            <b>5. Community Connect (unlocks day 8)</b>
+            <p>Cohort events, live sessions, and shared milestones—opt‑in and consent‑first.</p>
+          </div>
+          <div class="card">
+            <b>6. Limitless Journey (preview days 10–13)</b>
+            <p>Explore advanced paths and mentors with AI compatibility and gentle guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 PLANETS AS SPACES -->
+    <section id="planets">
+      <div class="container">
+        <h2>7 Planets as Spaces</h2>
+        <p class="muted">Rooted in classical seven: Sun • Moon • Mercury • Venus • Mars • Jupiter • Saturn.</p>
+        <div class="planets" role="list">
+          <article class="planet" role="listitem">
+            <span class="tag">Sun</span>
+            <h3>Identity</h3>
+            <p class="muted">Home hub for your story, goals, and the AI Light Sphere presence.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Moon</span>
+            <h3>Sanctuary</h3>
+            <p class="muted">Rituals, journaling, dreams, and gentle reflections.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Mercury</span>
+            <h3>Study</h3>
+            <p class="muted">Lessons, tarot archetypes, numerology & knowledge maps.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Venus</span>
+            <h3>Community</h3>
+            <p class="muted">Connect, share art, celebrate milestones and beauty.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Mars</span>
+            <h3>Practice</h3>
+            <p class="muted">Daily quests, movement, breath—action in service of spirit.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Jupiter</span>
+            <h3>Mentorship</h3>
+            <p class="muted">Guides, teachings, and growth opportunities curated for you.</p>
+          </article>
+          <article class="planet" role="listitem">
+            <span class="tag">Saturn</span>
+            <h3>Discipline</h3>
+            <p class="muted">Boundaries, streaks, and the long arc of mastery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13‑DAY REWARDING JOURNEY -->
+    <section id="journey">
+      <div class="container">
+        <h2>The 13‑Day Rewarding Journey</h2>
+        <p class="muted">A cyclical arc—initiation to integration—aligned with your chart, numerology, and intentions.</p>
+        <div class="timeline" aria-label="13‑day timeline" role="list">
+          <div class="step" role="listitem"><b>1</b> Intention + baseline</div>
+          <div class="step" role="listitem"><b>2</b> Archetype brief</div>
+          <div class="step" role="listitem"><b>3</b> Practice set A</div>
+          <div class="step" role="listitem"><b>4</b> Control Panel unlock</div>
+          <div class="step" role="listitem"><b>5</b> Reflection + micro‑win</div>
+          <div class="step" role="listitem"><b>6</b> Tarot focus</div>
+          <div class="step" role="listitem"><b>7</b> Practice set B</div>
+          <div class="step" role="listitem"><b>8</b> Community unlock</div>
+          <div class="step" role="listitem"><b>9</b> Numerology thread</div>
+          <div class="step" role="listitem"><b>10</b> Limitless preview</div>
+          <div class="step" role="listitem"><b>11</b> Mentor ping</div>
+          <div class="step" role="listitem"><b>12</b> Integration</div>
+          <div class="step" role="listitem"><b>13</b> Closing rite + next seed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAROT AI PREVIEW -->
+    <section id="tarot">
+      <div class="container grid-2">
+        <div>
+          <h2>Tarot AI • Free Insights</h2>
+          <p class="muted">New users get a free bot reading via email or SMS. Your Spirit translates the symbols into simple, practical suggestions for the next 24 hours.</p>
+          <ul>
+            <li>Pulls a relevant archetype and clarifies its lesson</li>
+            <li>Links to your current Journey day & practice</li>
+            <li>Opt‑out anytime; your data stays yours</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn gold" href="#signup">Get free reading</a>
+            <a class="btn" href="#faq">Is my data private?</a>
+          </div>
+        </div>
+        <div class="card" aria-hidden="true">
+          <div style="aspect-ratio: 16/10; border-radius:14px; background: radial-gradient(120px 160px at 70% 30%, rgba(246,196,83,.25), transparent 60%), linear-gradient(135deg,#0e1730,#14244e); border:1px dashed rgba(255,255,255,.18); display:grid; place-items:center">
+            <div style="text-align:center">
+              <div style="font:800 20px 'Inter'">Preview Frame</div>
+              <div class="muted">Drop in a HeyGen still / mock later</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="container">
+        <h2>Roadmap</h2>
+        <div class="grid-3">
+          <div class="card"><b>Alpha (invite‑only)</b><p>Waitlist, Tarot AI v1, 13‑day core journey, basic calendar.</p></div>
+          <div class="card"><b>Beta</b><p>Spaces fully interactive, community events, mentor matching v1.</p></div>
+          <div class="card"><b>1.0</b><p>Limitless paths, shopfront, creator tools, advanced analytics (privacy‑first).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details>
+          <summary>How do I deploy this site?</summary>
+          <div>
+            <ol>
+              <li>Save this file as <span class="kbd">index.html</span> in your GitHub repo.</li>
+              <li>In the repo settings, enable <b>GitHub Pages</b> &rarr; Source: <i>main</i>, folder: <i>/root</i>.</li>
+              <li>Open the published URL. Done.</li>
+            </ol>
+          </div>
+        </details>
+        <details>
+          <summary>How do I hook up email & SMS?</summary>
+          <div>
+            <p>Connect the form submit to your stack using a serverless function or tools like Zapier/Make. See inline comments in the code for <span class="kbd">/api/waitlist</span> ideas.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Is my data private?</summary>
+          <div>
+            <p>Yes. Spirit is designed consent‑first. We collect only what’s needed to deliver your experience and you can delete it at any time.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between">
+      <div style="display:flex; align-items:center; gap:12px">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <b>Spirit</b>
+          <div class="muted" style="font-size:13px">© <span id="year"></span> Spirit Journey</div>
+        </div>
+      </div>
+      <nav aria-label="footer" style="display:flex; gap:16px">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Spirit",
+    "url": "https://spiritjourney.app/",
+    "description": "AI‑driven, soul‑centric journeys across astrology, numerology, tarot, and practice.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://spiritjourney.app/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script>
+    // --- Utility: current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- AI Light Sphere animation (Canvas) ---
+    (function(){
+      const canvas = document.getElementById('orb');
+      const ctx = canvas.getContext('2d');
+      let w, h, dpr;
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
+        ctx.scale(dpr, dpr);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const prefs = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let t = 0;
+      function draw(){
+        if(prefs.matches){ return; }
+        t += 0.005;
+        ctx.clearRect(0,0,w,h);
+        const cx = w*0.5 + Math.cos(t*0.9)*w*0.22;
+        const cy = h*0.45 + Math.sin(t*1.2)*h*0.18;
+        const r = Math.max(60, Math.min(180, 120 + Math.sin(t*1.7)*40));
+
+        // Outer aura
+        const g1 = ctx.createRadialGradient(cx,cy, r*0.2, cx,cy, r*1.6);
+        g1.addColorStop(0, 'rgba(246,196,83,0.25)');
+        g1.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g1; ctx.beginPath(); ctx.arc(cx,cy,r*1.6,0,Math.PI*2); ctx.fill();
+
+        // Core
+        const g2 = ctx.createRadialGradient(cx,cy, r*0.1, cx,cy, r);
+        g2.addColorStop(0, 'rgba(135,240,255,0.95)');
+        g2.addColorStop(1, 'rgba(106,184,255,0.05)');
+        ctx.fillStyle = g2; ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
+
+        // Sparkle
+        ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        ctx.beginPath(); ctx.arc(cx + r*0.25, cy - r*0.25, 2.5, 0, Math.PI*2); ctx.fill();
+
+        // Update CSS glow vars for subtle background
+        const root = document.documentElement;
+        root.style.setProperty('--gx', (cx/w*100)+'%');
+        root.style.setProperty('--gy', (cy/h*100)+'%');
+        root.style.setProperty('--gx2', (100 - (cx/w*100))+'%');
+        root.style.setProperty('--gy2', (100 - (cy/h*100))+'%');
+
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    })();
+
+    // --- Waitlist form (client‑side only) ---
+    // Replace the console.log with your API call (e.g., fetch('/api/waitlist', { ... }))
+    const form = document.getElementById('waitlistForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      // Basic validation
+      if(!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
+        alert('Please enter a valid email.');
+        return;
+      }
+      console.log('Waitlist submission »', data);
+      // Example: POST to server (uncomment & implement)
+      // fetch('/api/waitlist', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
+      //   .then(r=>r.ok?r.json():Promise.reject(r))
+      //   .then(()=> alert('Thanks! You\'re on the list.'))
+      //   .catch(()=> alert('Something went wrong. Please try again later.'))
+      alert("Thanks! You're on the list.");
+      form.reset();
+    });
+  </script>
+
+  <!--
+  ──────────────────────────────────────────────────────────────────────────────
+   Deployment • GitHub Pages
+   1) Create a repo (e.g., spirit-site), add this file as index.html to root.
+   2) Settings → Pages → Build and deployment → Source: Deploy from a branch.
+   3) Branch: main, Folder: /root. Save. Your site will go live shortly.
+
+   Integration Next Steps (back‑end)
+   • Add /api/waitlist via serverless (Vercel/Netlify) to capture email/phone → Zapier/Make → CRM/Google Sheet.
+   • Connect HeyGen previews by dropping in a poster image or embedding a video on #tarot section.
+   • Swap dummy OG image with a real banner.
+   • Add analytics (privacy‑first): Plausible or Fathom.
+   • When ready, mint dedicated pages for Privacy, Terms, Contact.
+  ──────────────────────────────────────────────────────────────────────────────
+  -->
+</body>
+</html>
